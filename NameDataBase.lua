@@ -6,5 +6,6 @@ Names = {Apollo, Artemis, Aries, Aprodite, Hermes, Hephaestus, Hades, Zeus, Posi
 while True do
 local id, msg, channel = Rednet.Receive(TN)
 if string.match(msg, "Name-TID:.*") then
-Names[msg:sub("10")]
-Rednet.Broadcast(msg:sub("10")..." Name
+Rednet.Broadcast(msg:sub("10")..." Name "...Names[msg:sub("10")])
+end
+end
