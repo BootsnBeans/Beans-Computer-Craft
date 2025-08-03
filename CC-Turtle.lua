@@ -1,9 +1,15 @@
 Rednet.Open("Back")
-//Turtle ID
+--Turtle ID
 TID = 01
-//Turtle Network
+--Turtle Network
 TN = "Con"
 
-Rednet.Broadcast("Name-TID:"...TID,"Con")
+Rednet.Broadcast("Name-TID:"...TID,TN)
 While True Do
-local id, msg, channel = Rednet.Receive("Con
+local id, msg, channel = Rednet.Receive(TN)
+if channel == TN then
+if string.match(msg, TID..." Name.*") then
+os.SetComputerLabel(msg:sub("8"))
+end
+end
+end
